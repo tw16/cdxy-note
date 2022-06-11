@@ -1,0 +1,138 @@
+播放MP3
+			
+	1。 在家目录下创建一个安装目录并命名为mp3
+		mkdir /home/gec/mp3
+		chmod 777 /home/gec/mp3
+
+	2. 处理： zlib-1.2.7.tar.gz
+	===========================================
+		1）解压zlib-1.2.7.tar.gz到家目录下
+
+			tar zxvf zlib-1.2.7.tar.gz -C /home/gec
+
+		2）切换到解压后的路径下
+
+			cd ~/zlib-1.2.7/
+
+		3）配置    ---> 生成Makefile
+
+			./configure --prefix=/home/gec/mp3
+
+		4）修改Makefile
+
+			gedit Makefile
+
+			CC=gcc    --->  CC=arm-linux-gcc
+			LDSHARED=gcc -shared -Wl,-soname,libz.so.1,--version-script,zlib.map
+
+			---> 修改为  LDSHARED=arm-linux-gcc -shared -Wl,-soname,libz.so.1,--version-script,zlib.map
+
+			CPP=gcc -E   -->   CPP=arm-linux-gcc -E
+			AR=ar   --->  AR=arm-linux-ar
+			RANLIB=ranlib   -->  RANLIB=arm-linux-ranlib
+
+		5）编译
+
+			make
+
+		6）安装
+
+			make install
+
+
+
+	3.  处理libid3tag-0.15.1b.tar.gz
+	==============================================================
+		1）解压libid3tag-0.15.1b.tar.gz库到家目录下
+
+			tar zxvf libid3tag-0.15.1b.tar.gz -C ~
+
+		2）切换到库的路径下
+	
+			cd ~/libid3tag-0.15.1b/
+
+		3）配置
+
+			./configure --host=arm-linux --prefix=/home/gec/mp3 CPPFLAGS="-I/home/gec/mp3/include" LDFLAGS="-L/home/gec/mp3/lib"
+
+
+		4）编译
+
+			make
+
+		5）安装
+
+			make install
+
+
+
+	4.  处理libmad-0.15.1b.tar.gz
+	========================================================
+		1）解压libmad-0.15.1b.tar.gz库到家目录下
+
+			tar zxvf libmad-0.15.1b.tar.gz -C ~
+
+		2）切换到库的路径
+
+			cd ~/libmad-0.15.1b/
+
+		3）配置
+
+			./configure --host=arm-linux --prefix=/home/gec/mp3
+
+
+		4）编译
+
+			make
+		修改makefile
+		gedit  Makefile
+		显示行号：edit→preferencse-dispaly line numbers
+
+cc1: error: unrecognized command line option "-fforce-mem"    ---> 不能识别这个选项
+
+	解决方案： 找到Makefile中的129行中的-fforce-mem,删除掉即可！
+		   重新编译
+
+			make
+
+		5）安装
+
+			make install
+
+
+	5.  madplay_0.15.2b.orig.tar.gz
+	==========================================================
+		1）解压madplay_0.15.2b.orig.tar.gz库到家目录下
+
+			tar zxvf madplay_0.15.2b.orig.tar.gz -C ~
+
+		2）切换到库的路径下
+
+			cd ~/madplay-0.15.2b/
+
+		3）配置
+
+			./configure --host=arm-linux --prefix=/home/gec/mp3 CPPFLAGS="-I/home/gec/mp3/include" LDFLAGS="-L/home/gec/mp3/lib"
+
+		4）编译
+
+			make
+
+		5）安装
+
+			make install      ------> 得到/home/gec/mp3/madplay
+
+			
+
+	6.  下载madplay可执行程序到ARM平台上
+
+		chmod 777 madplay
+
+
+	7.  执行
+		1)先把把 libmad.so.0和 libid3tag.so.0和libz.so.1放到放开板的/lib下
+
+
+		./madplay **.mp3 
+
+

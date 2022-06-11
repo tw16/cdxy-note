@@ -1,0 +1,71 @@
+1、打开终端： ctrl+alt+t
+2、关闭终端：ctrl+d
+3、终端扩大：ctrl+shift++
+4、终端缩小：ctrl - -
+5、复制粘贴：ctrl+shift+c/v
+6、管理权限切换： sudo su
+7、退出管理员：exit
+8、临时使用管理员： sudo 命令
+======================================
+ls（list）
+作用：列出当前目录下的文件
+用法：
+ls：查看当前目录
+ls -l：列出当前目录下的文件详细信息
+ls -a：查看当前目录所有文件
+ls -lh：带单位显示文件大小
+.（点）：当前目录
+..（点点）：上一级目录
+../../：上上级目录
+linux的七种文件类型：
+d：目录
+-：普通文件
+l：链接文件
+b：块设备
+c：字符设备
+s：套接字文件
+p：管道文件
+
+cd（change directory）
+作用：切换路径
+用法：
+cd：切换到家目录
+cd ~：切换到家目录
+cd /etc：切换到etc目录
+cd -：回到上一次操作的路径
+
+touch
+作用：创建普通文件、更新文件时间
+用法：
+touch filename：如果filename存在，更新文件时间
+			如果不存在，就创建文件
+
+gedit
+作用：编辑文件
+用法：
+gedit filename：文件存在就打开编辑，不存在就创建
+
+file
+作用：查看文件属性
+用法：
+file filename
+
+cat
+作用：查看文件内容，不打开文件
+用法：
+cat filename
+cat filename -n：带行号
+
+mkdir（make dierctory）
+作用：创建目录
+用法：
+mkdir dirname：创建一个目录
+
+rm（remove）
+作用：删除文件或目录
+用法：
+rm filename ：删除文件
+rm dirname -r：删除目录，删除目录及子目录
+
+
+

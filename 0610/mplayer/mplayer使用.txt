@@ -1,0 +1,29 @@
+如何使用mplayer工具
+1、把mplayer下载到开发板/bin目录下（chmod 777 mplayer）
+2、播放一个视频
+a)mplayer -slave -quiet -geometry 0:0 -zoom -x 800 -y 480 1.avi
+	mplayer：工具（命令）
+	-slave：使用slave命令来控制视频
+	-quite：不输出多余的信息
+	-geometry 0:0：指定播放的起始坐标
+	-zoom：允许视频缩放
+	-x 800：指定视频播放帧宽度
+	-y 480：指定视频播放帧高度
+	1.avi：视频文件的文件名
+b)如果要使用管道控制播放器，那么播放器就必须使用参数来指定管道路径
+mplayer -slave -quiet -input file=/tmp/fifo -geometry 0:0 -zoom -x 800 -y 480 1.avi
+	-input file=/tmp/fifo:指定管道文件的路径
+slave命令
+1、查看播放器的slave命令列表
+[root@GEC6818 ~/project]#mplayer -input cmdlist
+	seek                 Float [Integer]   ---> 快进/快退
+	pause                            ---> 播放器暂停播放/恢复播放
+	mute                 [Integer]   ---> 静音/恢复音量
+	volume               Float [Integer]  ---> 主音量 -100
+	speed_set           设置速度
+2、slave命令的特点
+slave命令\n   ---> 以一个\n作为这个命令的结束
+例子： 快进10秒   seek 10\n
+
+更多slave请查看手册：
+https://www.cnblogs.com/huangpeng1990/p/4364373.html

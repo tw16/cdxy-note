@@ -1,0 +1,20 @@
+检测触摸屏是否可用：
+cat /dev/input/event0
+
+液晶屏的基本参数：
+尺寸：7寸
+分辨率：800*480
+每一个像素点多少位：32位 = 4字节   //cat /sys/class/graphics/fb0/bits_per_pixel
+整个屏幕多少个字节：800*480*4字节
+每一个的像素点构成：ARGB（透明度、红、绿、蓝）
+
+颜色的描述：
+https://tool.oschina.net/commons?type=3
+
+
+在液晶屏上显示纯红色：
+液晶屏的设备名：/dev/fb0
+1、打开液晶屏设备 open
+2、准备颜色数据 int lcd_buf[800*480];
+3、把准备好颜色数据写入液晶屏write
+4、关闭文件

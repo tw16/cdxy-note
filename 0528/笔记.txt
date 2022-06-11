@@ -1,0 +1,19 @@
+mmap：内存映射
+头文件：#include <sys/mman.h>
+函数原型：void *mmap(void *addr, size_t length, int prot, int flags, int fd, off_t offset);
+	addr：NULL，让系统寻找一个合适地址
+	length：给文件映射内存的大小 800*480*4
+	prot：选择对内存的访问权限， PROT_READ | PROT_WRITE 
+	flags：MAP_SHARED  共享内存
+	fd：要映射的文件
+	offset：偏移量  0
+返回值：
+	成功:返回映射内存起始地址
+	失败：MAP_FAILED
+
+接触映射：
+int munmap(void *addr, size_t length);
+	addr：映射内存的起始地址
+	length：映射内存的大小
+
+

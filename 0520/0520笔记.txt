@@ -1,0 +1,56 @@
+cp（copy）
+作用：复制文件或目录
+用法：
+cp file1 file2：文件到文件
+cp file dir：文件到目录
+cp dir1/ dir2 -r：目录复制到目录
+
+mv（move）
+作用：移动文件，重命名
+用法：
+mv file1 file2：把file1重命名为file2
+mv file dir/：把file1移动到dir目录
+
+
+chmod（change mode）
+作用：修改文件权限
+用法：
+chmod 八进制数 filename
+chmod 777 3.txt  ：修改3.txt拥有所有权限
+chmod u+x 3.txt：给3.txt的user添加执行权限
+
+tar
+作用：归档、压缩
+用法：
+c：创建归档或压缩
+x：释放归档或压缩
+v：显示执行过程
+f：指定文件
+j：bz2的压缩格式    文件命名：xxx.tar.bz2
+z：gzip压缩格式     文件命名：xxx.tar.gz
+
+命令格式： 
+tar  cvf  xxx.tar  归档列表  ：创建一个归档xxx.tar文件 
+tar  xvf  xxx.tar   ：释放一个归档xxx.tar文件 
+tar  cvjf  xxx.tar.bz2  归档列表  ：创建一个bz2压缩xxx.tar.bz2文件
+tar  xvjf  xxx.tar.bz2   ：解压一个bz2的xxx.tar.bz2文件，解压到当前目录
+tar  xvjf  xxx.tar.bz2   ：解压一个bz2的xxx.tar.bz2文件，解压到当前目录
+tar  xvjf  xxx.tar.bz2  -C /dir/a/b ：解压一个bz2的xxx.tar.bz2文件，-C解压到指定目录
+
+man
+作用：帮助手册
+用法：
+1、shell命令用法
+2、系统IO：open、close函数用法
+3、标准IO：printf、scanf函数用法
+man 手册数 查询的关键字
+man 1 ls	:指定第一手册查询命令ls
+man 2 open  ：指定第二手册，查询函数open的使用
+man 3 printf	：指定第三手册，查询函数printf的使用
+read（）这个函数没见过？不清楚去哪个手册查找？
+man -f read：-f列出在man手册中有read相关解释的手册
+
+
+
+
+
